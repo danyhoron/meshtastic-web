@@ -1,5 +1,5 @@
 {
-  "name": "@meshtastic/protobufs-ws",
+  "name": "@meshtastic/protobufs",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,12 +10,12 @@
   ],
   "exports": {
     ".": {
-      "types": "./packages/ts/dist/mod.d.ts",
-      "default": "./packages/ts/dist/mod.js"
+      "types": "./packages/ts/mod.ts",
+      "default": "./packages/ts/mod.ts"
     },
     "./*": "./packages/ts/dist/*"
   },
-  "types": "./packages/ts/dist/mod.d.ts",
+  "types": "./packages/ts/mod.ts",
   "sideEffects": false,
   "scripts": {
     "gen": "buf generate",

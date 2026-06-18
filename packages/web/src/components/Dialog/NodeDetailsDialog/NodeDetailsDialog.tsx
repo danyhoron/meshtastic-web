@@ -38,6 +38,7 @@ import {
   BellOffIcon,
   MapPinnedIcon,
   MessageSquareIcon,
+  RadioIcon,
   StarIcon,
   TrashIcon,
   WaypointsIcon,
@@ -102,6 +103,22 @@ export const NodeDetailsDialog = ({
     connection?.requestPosition(node.num).then(() =>
       toast({
         title: t("toast.positionRequestSent.title", { ns: "ui" }),
+      }),
+    );
+    onOpenChange(false);
+  }
+
+  function handleBroadcastPosition() {
+    if (!node) {
+      return;
+    }
+
+    toast({
+      title: t("toast.broadcastingPosition.title", { ns: "ui" }),
+    });
+    connection?.broadcastPosition(node.num).then(() =>
+      toast({
+        title: t("toast.positionBroadcastSent.title", { ns: "ui" }),
       }),
     );
     onOpenChange(false);
@@ -414,6 +431,14 @@ export const NodeDetailsDialog = ({
                 >
                   <MapPinnedIcon className="mr-2" />
                   {t("nodeDetails.requestPosition")}
+                </Button>
+                <Button
+                  onClick={handleBroadcastPosition}
+                  name="broadcastPosition"
+                  className="mt-2"
+                >
+                  <RadioIcon className="mr-2" />
+                  {t("nodeDetails.broadcastPosition")}
                 </Button>
               </div>
 

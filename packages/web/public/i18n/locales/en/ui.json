@@ -44,6 +44,8 @@
   "toast": {
     "positionRequestSent": { "title": "Position request sent." },
     "requestingPosition": { "title": "Requesting position, please wait..." },
+    "positionBroadcastSent": { "title": "Position broadcast sent." },
+    "broadcastingPosition": { "title": "Broadcasting position, please wait..." },
     "sendingTraceroute": { "title": "Sending Traceroute, please wait..." },
     "tracerouteSent": { "title": "Traceroute sent." },
     "savedChannel": { "title": "Saved Channel: {{channelName}}" },

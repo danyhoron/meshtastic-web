@@ -424,6 +424,18 @@ message Config {
      * Set where GPS is enabled, disabled, or not present
      */
     GpsMode gps_mode = 13;
+
+    /*
+     * Send a reliable unicast position to all favorited nodes in addition to the normal broadcast.
+     * Uses want_ack with automatic retries via ReliableRouter.
+     */
+    bool reliable_to_favorites = 14;
+
+    /*
+     * Maximum age in seconds of last_heard for a favorited node to be considered reachable.
+     * 0 = use firmware default of 86400 (1 day).
+     */
+    uint32 reliable_to_favorites_max_age_secs = 15;
   }
 
   /*

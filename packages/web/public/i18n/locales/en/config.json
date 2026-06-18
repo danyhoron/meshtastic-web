@@ -333,6 +333,18 @@
       "description": "How often to send position updates",
       "label": "Intervals"
     },
+    "reliableDelivery": {
+      "label": "Reliable Delivery",
+      "description": "Send position reliably to favorited nodes using acknowledged unicast packets."
+    },
+    "reliableToFavorites": {
+      "label": "Reliable Position to Favorites",
+      "description": "Send a reliable unicast position to all favorited nodes in addition to the normal broadcast. Uses automatic retries to ensure delivery."
+    },
+    "reliableToFavoritesMaxAgeSecs": {
+      "label": "Favorites Max Age",
+      "description": "Only attempt delivery to a favorite node if it was last heard within this many seconds. 0 uses the firmware default of 86400 (1 day)."
+    },
     "flags": {
       "placeholder": "Select position flags...",
       "altitude": "Altitude",

@@ -105,6 +105,7 @@
   "nodeDetails": {
     "message": "Message",
     "requestPosition": "Request Position",
+    "broadcastPosition": "Broadcast Position",
     "traceRoute": "Trace Route",
     "airTxUtilization": "Air TX utilization",
     "allRawMetrics": "All Raw Metrics:",

@@ -1,0 +1,32 @@
+.git
+**/.git
+**/node_modules
+**/dist
+**/.turbo
+
+# Package manager artifacts
+.pnpm-store
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode
+.idea
+*.swp
+*.swo
+
+# Test artifacts
+coverage
+**/*.test.ts
+**/*.spec.ts
+tests/
+
+# Docs
+*.md
+LICENSE
+
+# Deno-specific
+packages/transport-deno/scripts

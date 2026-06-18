@@ -411,6 +411,23 @@ export class MeshDevice {
   }
 
   /**
+   * Requests a remote node to broadcast its current position to the mesh.
+   * Sends AdminMessage { broadcast_position: true } (custom field 150).
+   * Encoded manually as raw protobuf bytes since this is a fork-local field
+   * not yet present in the upstream @meshtastic/protobufs package.
+   */
+  public async broadcastPosition(destination: number): Promise<number> {
+    // Field tag varint: (150 << 3) | 0 = 1200 → [0xb0, 0x09], value true → [0x01]
+    const adminBytes = new Uint8Array([0xb0, 0x09, 0x01]);
+    return await this.sendPacket(
+      adminBytes,
+      Protobuf.Portnums.PortNum.ADMIN_APP,
+      destination,
+      ChannelNumber.Admin,
+    );
+  }
+
+  /**
    * Remove the fixed position of a device
    */
   public async removeFixedPosition(): Promise<number> {

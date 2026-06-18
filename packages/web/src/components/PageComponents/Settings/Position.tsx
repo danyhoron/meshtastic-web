@@ -252,6 +252,32 @@ export const Position = ({ onFormInit }: PositionConfigProps) => {
           ],
         },
         {
+          label: t("position.reliableDelivery.label"),
+          description: t("position.reliableDelivery.description"),
+          fields: [
+            {
+              type: "toggle",
+              name: "reliableToFavorites",
+              label: t("position.reliableToFavorites.label"),
+              description: t("position.reliableToFavorites.description"),
+            },
+            {
+              type: "number",
+              name: "reliableToFavoritesMaxAgeSecs",
+              label: t("position.reliableToFavoritesMaxAgeSecs.label"),
+              description: t("position.reliableToFavoritesMaxAgeSecs.description"),
+              properties: {
+                suffix: t("unit.second.plural"),
+              },
+              disabledBy: [
+                {
+                  fieldName: "reliableToFavorites",
+                },
+              ],
+            },
+          ],
+        },
+        {
           label: t("position.intervalsSettings.label"),
           description: t("position.intervalsSettings.description"),
           fields: [

@@ -8,21 +8,23 @@ import { defineConfig, loadEnv } from "vite";
 import { createHtmlPlugin } from "vite-plugin-html";
 import { VitePWA } from "vite-plugin-pwa";
 
-let hash = "";
-let version = "v0.0.0";
-try {
-  hash = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
-} catch (error) {
-  console.error("Error getting git hash:", error);
-  hash = "DEV";
+let hash = process.env.VITE_COMMIT_HASH ?? "";
+let version = process.env.VITE_VERSION ?? "v0.0.0";
+if (!hash) {
+  try {
+    hash = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
+  } catch {
+    hash = "DEV";
+  }
 }
-
-try {
-  version = execSync("git describe --tags --abbrev=0", {
-    encoding: "utf8",
-  }).trim();
-} catch (error) {
-  console.error("Error getting git version:", error);
+if (version === "v0.0.0") {
+  try {
+    version = execSync("git describe --tags --abbrev=0", {
+      encoding: "utf8",
+    }).trim();
+  } catch {
+    // keep default
+  }
 }
 
 const CONTENT_SECURITY_POLICY =

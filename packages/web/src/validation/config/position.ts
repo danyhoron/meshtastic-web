@@ -18,6 +18,8 @@ export const PositionValidationSchema = z.object({
   latitude: z.coerce.number().min(-90).max(90).optional(),
   longitude: z.coerce.number().min(-180).max(180).optional(),
   altitude: z.coerce.number().optional(),
+  reliableToFavorites: z.boolean(),
+  reliableToFavoritesMaxAgeSecs: z.coerce.number().int().min(0),
 });
 
 export type PositionValidation = z.infer<typeof PositionValidationSchema>;
